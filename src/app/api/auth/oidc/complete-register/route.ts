@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    let oidcSession;
+    let oidcSession: any;
     try {
       oidcSession = JSON.parse(oidcSessionCookie);
     } catch {

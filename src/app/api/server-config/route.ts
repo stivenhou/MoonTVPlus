@@ -43,6 +43,7 @@ export async function GET(request: NextRequest) {
     TurnstileSiteKey: config.SiteConfig.TurnstileSiteKey || '',
     EnableOIDCLogin: config.SiteConfig.EnableOIDCLogin || false,
     EnableOIDCRegistration: config.SiteConfig.EnableOIDCRegistration || false,
+    OIDCButtonText: config.SiteConfig.OIDCButtonText || '',
   };
   return NextResponse.json(result);
 }

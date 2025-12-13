@@ -311,6 +311,7 @@ interface SiteConfig {
   OIDCUserInfoEndpoint?: string;
   OIDCClientId?: string;
   OIDCClientSecret?: string;
+  OIDCButtonText?: string;
 }
 
 // 视频源数据类型
@@ -4605,6 +4606,7 @@ const SiteConfigComponent = ({
     OIDCUserInfoEndpoint: '',
     OIDCClientId: '',
     OIDCClientSecret: '',
+    OIDCButtonText: '',
   });
 
   // 豆瓣数据源相关状态
@@ -4686,6 +4688,7 @@ const SiteConfigComponent = ({
         OIDCUserInfoEndpoint: config.SiteConfig.OIDCUserInfoEndpoint || '',
         OIDCClientId: config.SiteConfig.OIDCClientId || '',
         OIDCClientSecret: config.SiteConfig.OIDCClientSecret || '',
+        OIDCButtonText: config.SiteConfig.OIDCButtonText || '',
       });
     }
   }, [config]);
@@ -5719,6 +5722,28 @@ const SiteConfigComponent = ({
           </div>
           <p className='mt-1 text-xs text-gray-500 dark:text-gray-400'>
             这是系统自动生成的回调地址，基于环境变量SITE_BASE。请在OIDC提供商（如Keycloak、Auth0等）的应用配置中添加此地址作为允许的重定向URI
+          </p>
+        </div>
+
+        {/* OIDC登录按钮文字 */}
+        <div>
+          <label className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2'>
+            OIDC登录按钮文字
+          </label>
+          <input
+            type='text'
+            placeholder='使用OIDC登录'
+            value={siteSettings.OIDCButtonText || ''}
+            onChange={(e) =>
+              setSiteSettings((prev) => ({
+                ...prev,
+                OIDCButtonText: e.target.value,
+              }))
+            }
+            className='w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent'
+          />
+          <p className='mt-1 text-xs text-gray-500 dark:text-gray-400'>
+            自定义OIDC登录按钮显示的文字，如"使用企业账号登录"、"使用SSO登录"等。留空则显示默认文字"使用OIDC登录"
           </p>
         </div>
       </div>

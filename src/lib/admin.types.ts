@@ -40,6 +40,7 @@ export interface AdminConfig {
     OIDCUserInfoEndpoint?: string; // 用户信息端点
     OIDCClientId?: string; // OIDC Client ID
     OIDCClientSecret?: string; // OIDC Client Secret
+    OIDCButtonText?: string; // OIDC登录按钮文字
   };
   UserConfig: {
     Users: {
