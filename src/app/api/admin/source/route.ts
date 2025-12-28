@@ -47,10 +47,9 @@ export async function POST(request: NextRequest) {
 
     // 权限与身份校验
     if (username !== process.env.USERNAME) {
-      const userEntry = adminConfig.UserConfig.Users.find(
-        (u) => u.username === username
-      );
-      if (!userEntry || userEntry.role !== 'admin' || userEntry.banned) {
+      // 从V2存储中获取用户信息
+      const userInfoV2 = await db.getUserInfoV2(username);
+      if (!userInfoV2 || userInfoV2.role !== 'admin' || userInfoV2.banned) {
         return NextResponse.json({ error: '权限不足' }, { status: 401 });
       }
     }
