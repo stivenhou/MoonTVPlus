@@ -5773,9 +5773,9 @@ function PlayPageClient() {
         </div>
 
         {/* 详情展示 */}
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-5 lg:grid-cols-6 gap-4'>
           {/* 文字区 */}
-          <div className='md:col-span-3'>
+          <div className='md:col-span-4 lg:col-span-5'>
             <div className='p-6 flex flex-col min-h-0'>
               {/* 标题 */}
               <h1 className={`text-3xl font-bold mb-2 tracking-wide flex items-center flex-shrink-0 text-center md:text-left w-full flex-wrap gap-2 ${tmdbBackdrop ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
@@ -5933,7 +5933,7 @@ function PlayPageClient() {
 
           {/* 封面展示 */}
           <div className='hidden md:block md:col-span-1 md:order-first'>
-            <div className='pl-0 py-4 pr-6'>
+            <div className='pl-0 py-4 pr-6 max-w-sm mx-auto'>
               <div className='relative bg-gray-300 dark:bg-gray-700 aspect-[2/3] flex items-center justify-center rounded-xl overflow-hidden'>
                 {videoCover ? (
                   <>
